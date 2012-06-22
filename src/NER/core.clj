@@ -1,5 +1,5 @@
 (ns NER.core
-     (:use     [clojure.pprint]
+     (:use     [clojure.pprint :only [pprint]]
                [clojure.inspector :only [inspect-tree, inspect]] )
      (:require [opennlp.nlp           :as nlp]
                [opennlp.treebank      :as trbank]
@@ -16,9 +16,9 @@
                (opennlp.tools.cmdline.namefind NameEvaluationErrorListener
                                                TokenNameFinderDetailedFMeasureListener)
                (opennlp.tools.dictionary  Dictionary)
-     	       (opennlp.tools.namefind    DictionaryNameFinder2
+     	       (opennlp.tools.namefind    ;DictionaryNameFinder2 openNLP patch
      	                                  TokenNameFinder
-     	                                  AggregateNameFinder 
+     	                                  ;AggregateNameFinder   openNLP patch
      	                                  TokenNameFinderEvaluator
      	                                  TokenNameFinderCrossValidator
      	                                  TokenNameFinderModel
